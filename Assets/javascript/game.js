@@ -3,8 +3,12 @@ const word = ['Mud City', 'Windy City', 'Chi Town', 'Second City', 'City of the 
 //Choose word randomly
 let randNum = Math.floor(Math.random() * word.length);
 let choosenWord = word[randNum];
+let rightWord = [];
+let wrongWord = [];
 let underScore = []; 
+
 console.log(choosenWord);
+
 //create underscores 
 let generateUnderscore = () => {
     for(let i = 0; i < choosenWord.length; i++) {
@@ -16,11 +20,15 @@ console.log(generateUnderscore());
 //get users guess
 document.addEventListener('keypress', (event) => {
     let keyword = String.fromCharCode(event.keyCode);
-    console.log(choosenWord.indexOf(keyword));
-    if(keyword.indexOf(choosenWord) > -1) {
-        console.log(true);
+
+    if(choosenWord.indexOf(choosenWord) > -1) {
+        rightWord.push(keyword);
+        console.log(rightword);
+
+        wrongWord.push(keyword);
+        console.log(wrongword);
     }
 });
-//check ig guess is correct
+//check if guess is correct
 //if right push to right array
 //if wrong push to wrong array
